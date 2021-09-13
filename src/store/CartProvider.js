@@ -60,24 +60,33 @@ const cartReducer = (state, action) => {
         }
     }
 
-    return state
+    if (action.type === 'CLEAR') {
+        return defaultState;
+    }
+
+    return defaultState;
 }
 
 const CartProvider = props => {
     const [cartState, dispatchCart] = useReducer(cartReducer, defaultState)
     const addCartItemHandler = item => {
-        dispatchCart({ type: "ADD", item: item })
+        dispatchCart({ type: "ADD", item: item });
     }
 
     const removeCartItemHandler = id => {
-        dispatchCart({ type: "REMOVE", id: id })
+        dispatchCart({ type: "REMOVE", id: id });
+    }
+
+    const clearCartItemHandler = () => {
+        dispatchCart({ type: "CLEAR" });
     }
 
     const cartContext = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItems: addCartItemHandler,
-        removeItems: removeCartItemHandler
+        removeItems: removeCartItemHandler,
+        clearItems: clearCartItemHandler
     }
 
     return <CartContext.Provider value={cartContext}>

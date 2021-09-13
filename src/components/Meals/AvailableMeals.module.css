@@ -10,6 +10,27 @@
     margin: 0;
     padding: 0;
   }
+
+  .isLoading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+  }
+
+  .isError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(238, 67, 67);
+  }
+
+  .noMealsFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+  }
   
   @keyframes meals-appear {
     from {

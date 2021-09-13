@@ -9,8 +9,8 @@ yarn-error.log*
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-#Credentials
-.credentials.cfg
+# Environment Variable
+.env
 
 # Dependency directories
 node_modules/
